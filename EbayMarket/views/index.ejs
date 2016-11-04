@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script
+          src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="/javascripts/signin.js"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+<%- include('footer'); %>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-sm-2">
+      <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="100">
+        <li><a href="#section1">Cell Phones & Accessories</a></li>
+        <li><a href="#section1">Computers/Tablets</a></li>
+        <li><a href="#section1">Clothing, Shoes</a></li>
+        <li><a href="#section1">Consumer Electronics</a></li>
+        <li><a href="#section1">Home & Garden</a></li>
+        <li><a href="#section1">Jewelry & Watches</a></li>
+        <li><a href="#section1">Business & Industrial</a></li>
+        <li><a href="#section1">Sporting Goods</a></li>
+        <li><a href="#section1">Health & Beauty</a></li>
+        <li><a href="#section1">Specialty Services</a></li>
+      </ul>
+    </nav>
+    <div class="col-sm-10">
+      <ul class="nav nav-tabs">
+        <li class="active">
+          <a data-toggle="tab" href="#buyitnow">Buy it now</a>
+        </li>
+        <li>
+          <a data-toggle="tab" href="#auction">Auction</a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <div id="buyitnow" class="tab-pane fade in active">
+          <table class="table">
+            <% for (var i = 0; i < items.length; i++) {%>
+              <%if (items[i].type == 0) {%>
+                <tr>
+                  <td>
+                    <div class="panel panel-info">
+                      <div class="panel-heading">
+                        <a href="/item/<%= items[i]._id %>"><%= items[i].description %></a>
+                      </div>
+                      <div class="panel-body">
+                        <%= items[i].userName + '   -   ' + 'shipped from ' + items[i].location + '   -   '%>
+                        $<%= items[i].buyNowPrice + '   -   '%>
+                        <%= items[i].num + ' pieces'%>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              <%}%>
+            <% } %>
+          </table>
+        </div>
+        <div id="auction" class="tab-pane fade">
+          <table class="table">
+            <% for (var i = 0; i < items.length; i++) {%>
+            <%if (items[i].type == 1) {%>
+            <tr>
+              <td>
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <a href="/auction/<%= items[i]._id %>"><%= items[i].description %></a>
+                  </div>
+                  <div class="panel-body">
+                    <%= items[i].userName + '   -   ' + 'shipped from ' + items[i].location + '   -   '%>
+                    $<%= items[i].currBid + '   -   '%>
+                    <%= items[i].bids + ' bids'%>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <%}%>
+            <% } %>
+          </table>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

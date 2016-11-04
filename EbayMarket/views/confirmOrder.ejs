@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="/javascripts/global.js"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+<%- include('footer'); %>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-9">
+            <h1>Your order has been place</h1></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-9">
+            <%var num = 0;%>
+            <%var total = 0%>
+            <%if (cart != null) {%>
+            <table class="table">
+                <% for (var i = 0; i < cart.length; i++) {%>
+                <tr>
+                    <td>
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <a href="/item/<%= cart[i].id %>"><%= cart[i].description %></a>
+                            </div>
+                            <div class="panel-body">
+                                <table width="100%">
+                                    <tr>
+                                        <td>Condition: <%= cart[i].cond %></td>
+                                        <td>
+                                            Quantity: <%=cart[i].quantity%>
+                                        </td>
+                                        <td><b>$<%= cart[i].buyNowPrice * cart[i].quantity%></b></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <% total = total + cart[i].buyNowPrice * cart[i].quantity%>
+                <% } %>
+
+            </table>
+            <%}%>
+
+        </div>
+        <div class="col-sm-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h2>Order summary</h2>
+                    <hr>
+                    <h2 ><b>Total: $<%= total%></b></h2>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+</body>
+</html>

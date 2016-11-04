@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="/javascripts/signup.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="col-sm-6">
+            <h1><span class=""></span> Sign up</h1>
+            <form ng-app="signup" ng-controller="signup"  name="signupForm" method="post" action="/signup" >
+                <div class="form-group" ng-class="{ 'has-error' : invalidEmail }">
+                    <input type="email" class="form-control" name="email"  placeholder="Email" value="<%= email %>">
+                    <span class="help-block" ng-show="invalidEmail">
+                        {{emailError}}
+                    </span>
+                    <span class="help-block">
+                        <%= emailError %>
+                    </span>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error' : invalidReEmail }">
+                    <input type = "email" class="form-control" name="reEmail" placeholder="Reenter email" value="<%= reEmail %>">
+                    <span class="help-block" ng-show="invalidReEmail">
+                        {{reEmailError}}
+                    </span>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error' : invalidPassword }">
+                    <input type="password" name="password" class="form-control" ng-model="password" placeholder="Password">
+                    <span ng-show="signupForm.password.$dirty">
+                        <ul>
+                            <li>Use 6 to 64 characters.</li>
+                            <li>Besides letters, include at least a number or symbol (!@#$%^*-_+=).</li>
+                            <li>Password is case sensitive.</li>
+                            <li>Avoid using the same password for multiple sites.</li>
+                        </ul>
+                    </span>
+                     <span class="help-block" ng-show="invalidPassword">
+                        {{passwordError}}
+                    </span>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error' : invalidFirstName }">
+                    <input type="text" name="firstName" class="form-control" placeholder="First name" value="<%= firstName %>">
+                    <span class="help-block" ng-show="invalidFirstName">
+                        {{firstNameError}}
+                    </span>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error' : invalidLastName }">
+                    <input type="text" name="lastName" class="form-control" placeholder="Last name" value="<%= lastName %>">
+                    <span class="help-block" ng-show="invalidLastName">
+                        {{lastNameError}}
+                    </span>
+                </div>
+
+                <button class="btn btn-success" >Sign up</button>
+                <span class="help-block"><%= generalError %></span>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

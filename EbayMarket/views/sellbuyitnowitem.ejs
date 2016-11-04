@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+<%- include('footer'); %>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-sm-2">
+            <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="100">
+                <li><a href="/user/allselling">All selling</a></li>
+                <li><a href="/user/sellBuyItem">Sell item</a></li>
+                <li><a href="/user/sold">Sold</a></li>
+                <li><a href="/user/bought">Bought</a></li>
+                <li class="divider"></li>
+                <li><a href="/bid/allauction">All auction</a></li>
+                <li><a href="/user/auctionItem">Auction item</a></li>
+                <li><a href="/bid/allbidding">All bidding</a></li>
+            </ul>
+        </nav>
+        <div class="col-sm-6">
+            <h1><span class=""></span> Register your item</h1>
+            <form method="post" action="/user/sellBuyItem" >
+                <span class="alert"><%= generalError %></span>
+                <div>Register item</div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="name"  placeholder="Category">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" name="description"  placeholder="Description">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" name="num"  placeholder="Quantity">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="buyNowPrice"  placeholder="Buy It Now Price">
+                </div>
+                <div class="form-group">
+                    <select name="cond">
+                        <option value="New">New</option>
+                        <option value="Used - excellent">Used - excellent</option>
+                        <option value="Used - good">Used - good</option>
+                        <option value="Used - acceptable">Used - acceptable</option>
+                    </select>
+                </div>
+
+                <div>Your address</div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="street"  placeholder="Street" value="<%=address.street%>">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" name="city"  placeholder="City" value="<%=address.city%>">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="state"  placeholder="State" value="<%=address.state%>">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" name="zipcode"  placeholder="Zipcode" value="<%=address.zipcode%>">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="country"  placeholder="Country" value="<%=address.country%>">
+                </div>
+                <button class="btn btn-success" >Register Item</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

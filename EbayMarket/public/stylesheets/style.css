@@ -1,0 +1,48 @@
+body {
+  font: 20px Montserrat, sans-serif;
+
+}
+
+#login_logo {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+#logo {
+  width: 150px;
+  height: 60px;
+}
+
+.alert {
+  color: red;
+}
+
+.navbar {
+  padding-bottom: 35px;
+  border: 0;
+  border-radius: 0;
+  margin-bottom: 20px;
+  font-size: 12px;
+  letter-spacing: 5px;
+  background-color: #f8f6f8;
+}
+
+a {
+  padding: 0px;
+}
+
+.affix {
+  top: 20px;
+}
+
+.nav-stacked {
+  font: 12px Montserrat, sans-serif;
+}
+
+.list-group {
+  margin-top: 20px;
+}
+
+#item_table tr td{
+  width: 500px;
+}

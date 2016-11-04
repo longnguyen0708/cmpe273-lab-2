@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script
+          src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+<%- include('footer'); %>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-sm-2">
+      <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="100">
+        <li><a href="/user/allselling">All selling</a></li>
+        <li><a href="/user/sellBuyItem">Sell item</a></li>
+        <li><a href="/user/sold">Sold</a></li>
+        <li><a href="/user/bought">Bought</a></li>
+        <li class="divider"></li>
+        <li><a href="/bid/allauction">All auction</a></li>
+        <li><a href="/user/auctionItem">Auction item</a></li>
+        <li><a href="/bid/allbidding">All bidding</a></li>
+      </ul>
+    </nav>
+    <div class="col-sm-10">
+      <%if (msg != undefined) {%>
+      <%=msg%>
+      <%} else {%>
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Condition</th>
+          <th>Date post</th>
+          <th>Buyer</th>
+          <th>Date order</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for (var i = 0; i < items.length; i++) {%>
+        <tr>
+          <td><%= items[i].name %></td>
+          <td><%= items[i].description %></td>
+          <td>$<%= items[i].buyNowPrice %></td>
+          <td><%= items[i].quantity %></td>
+          <td><%= items[i].cond %></td>
+          <td><%= items[i].datePost %></td>
+          <td><%= items[i].firstName + ' ' + items[i].lastName %></td>
+          <td><%= items[i].orderDate %></td>
+        </tr>
+        <% } %>
+        </tbody>
+      </table>
+      <%}%>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

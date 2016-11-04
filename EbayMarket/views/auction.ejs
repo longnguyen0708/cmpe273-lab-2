@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script
+          src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+<%- include('footer'); %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8 col-md-offset-2">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <%= item.description %>
+        </div>
+        <div class="panel-body">
+          <form name="bidForm" method="post" action="/bid/placeBid" >
+            <table id="item_table">
+              <tr>
+                <td>
+                  <p>Item condition: <b><%= item.cond %></b></p>
+                </td>
+                <td>
+                  <p>Seller: <i><%= item.userName%></i></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>Location: <%= item.location%></p>
+                </td>
+                <td>
+                  <p>Current bid: <b>$<%= item.currBid%></b> </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>Expire day: <%=item.dateExpire%></p>
+                </td>
+                <td>
+                  <span class="alert"><a href=<%="/bid/getBid/" + item.itemId%>>[<%=item.bids + ' bids'%>]</a></span>
+                </td>
+              </tr>
+              <tr></tr>
+              <tr>
+                <td>
+                  <span>Enter US $<%=item.currBid + 1%> or more</span>
+                  <input type="number" name="bidAmount" min="<%=item.currBid + 1%>">
+                </td>
+                <td>
+                  <button class="btn btn-primary " >Place bid</button>
+
+                </td>
+              </tr>
+
+            </table>
+
+
+            <span class="alert"><%= msg %></span>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+</body>
+</html>

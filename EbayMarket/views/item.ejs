@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script
+          src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+<%- include('footer'); %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8 col-md-offset-2">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <%= item.description %>
+        </div>
+        <div class="panel-body">
+          <form name="bidForm" method="post" action="/cart/addToCart" >
+            <table id="item_table">
+              <tr>
+                <td>
+                  <p>Item condition: <b><%= item.cond %></b></p>
+                </td>
+                <td>
+                  <p>Seller: <i><%= item.userName%></i></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>Location: <%= item.location%></p>
+                </td>
+                <td>
+                  <p>Price: <b>$<%= item.buyNowPrice%></b> </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="form-group">
+                    Quantity:
+                    <select name="buyQuantity">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                    </select>
+                  </div>
+                </td>
+                <td>
+                  <span class="alert"><%=item.soldNum + ' sold'%> </span>
+                </td>
+              </tr>
+              <tr></tr>
+              <tr>
+                <td><button class="btn btn-primary btn-block" >Add to cart</button></td>
+                <td></td>
+              </tr>
+
+            </table>
+
+
+            <span class="alert"><%= msg %></span>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+</body>
+</html>

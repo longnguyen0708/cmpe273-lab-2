@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="/javascripts/global.js"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+<%- include('footer'); %>
+<div class="container-fluid">
+    <div class="col-sm-6">
+        <h1><span class=""></span>Profile</h1>
+
+        Email: <%=profile.email%> <br>
+        User name: <%= profile.firstName + ' ' + profile.lastName%> <br>
+        Address:
+        <%if (profile.city != null) {%>
+        <%= profile.street + ', ' + profile.city + ', ' + profile.state + ' ' + profile.zipcode + ', ' + profile.country%>
+        <%}%>
+        <div id="editProfile"><a>Edit</a></div>
+        <div id="editForm">
+            <form action="/user/updateProfile" method="post">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="street"  placeholder="Street" value="<%=profile.street%>">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" name="city"  placeholder="City" value="<%=profile.city%>">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="state"  placeholder="State" value="<%=profile.state%>">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="zipcode"  placeholder="Zipcode" value="<%=profile.zipcode%>">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="country"  placeholder="Country" value="<%=profile.country%>">
+                </div>
+                <button class="btn btn-success" >Save</button>
+
+            </form>
+            <%= msg %>
+        </div>
+    </div>
+</div>
+</body>
+</html>

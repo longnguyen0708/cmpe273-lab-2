@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script
+          src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="/javascripts/global.js"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+<%- include('footer'); %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-9 col-md-offset-1">
+        <h1>Check out</h1></div>
+    </div>
+    <div class="row">
+      <form method="post" action="/cart/confirmCheckout" >
+        <div class="col-sm-5 col-md-offset-1">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h5>Credit or debit card</h5>
+              <hr>
+              <span class="alert"><%= msg %></span>
+              <div class="form-group">
+                <input type="text" id="ex1" class="form-control" name="cardNumber"  placeholder="Card number">
+              </div>
+
+              <div class="form-group">
+                  <input type="number"class="form-control" name="expireMonth"  max="12" min="1" placeholder="Expire month">
+              </div>
+              <div class="form-group">
+                 <input type="number" class="form-control" name="expireDay"  max="31" min="1" placeholder="Expire year">
+              </div>
+              <div class="form-group">
+                <input type="number" class="form-control" name="securityCode"  max="999" min="100" placeholder="Security code">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="firstName"  placeholder="First name">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="lastName"  placeholder="Last name">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-offset-1">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              Items(<%= quantity%>)<br>
+              Order total: $<%= price%> <br>
+              <input type="hidden" name="quantity" value="<%= quantity%>">
+              <input type="hidden" name="price" value="<%= price%>">
+              <button class="btn btn-success" >Confirm and pay</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="/javascripts/global.js"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+<div class="container">
+    <div class="row" id="login_logo" >
+        <div class="col-md-4 col-md-offset-5">
+            <a href="/"><img src="/images/logo.png" ></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+
+            <ul class="nav nav-tabs">
+                <li class="<%if (tab == 'signin'){%>active<%}%>">
+                    <a data-toggle="tab" href="#signin">Sign in</a>
+                </li>
+                <li class="<%if (tab == 'signup'){%>active<%}%>">
+                    <a data-toggle="tab" href="#signup">Sign up</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="signin" class="tab-pane fade <%if (tab == 'signin'){%>in active<%}%>">
+                    <form ng-app="signin" ng-controller="signin"  name="signinForm" method="post" action="/signin" >
+                        <span class="alert"><%= signinMsg %></span>
+                        <div class="form-group" ng-class="{ 'has-error' : invalidEmail }">
+                            <input type="email" class="form-control" name="username"  placeholder="Email">
+                        </div>
+
+                        <div class="form-group" ng-class="{ 'has-error' : invalidPassword }">
+                            <input type="password" name="password" class="form-control" ng-model="password" placeholder="Password">
+                        </div>
+                        <button class="btn btn-primary btn-block" >Sign in</button>
+
+                    </form>
+                </div>
+                <div id="signup" class="tab-pane fade <%if (tab == 'signup'){%>in active<%}%>">
+                    <form ng-app="signup" ng-controller="signup"  name="signupForm" method="post" action="/signup" >
+                        <span class="alert"><%= signupMsg %></span>
+                        <div class="form-group" ng-class="{ 'has-error' : invalidEmail }">
+                            <input type="email" class="form-control" name="email"  placeholder="Email">
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : invalidReEmail }">
+                            <input type = "email" class="form-control" name="reEmail" placeholder="Reenter email" >
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : invalidPassword }">
+                            <input type="password" name="password" class="form-control" ng-model="password" placeholder="Password">
+                        <span ng-show="signupForm.password.$touched">
+                            <ul>
+                                <li>Use 6 to 64 characters.</li>
+                                <li>Besides letters, include at least a number or symbol (!@#$%^*-_+=).</li>
+                                <li>Password is case sensitive.</li>
+                                <li>Avoid using the same password for multiple sites.</li>
+                            </ul>
+                        </span>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : invalidFirstName }">
+                            <input type="text" name="firstName" class="form-control" placeholder="First name" >
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : invalidLastName }">
+                            <input type="text" name="lastName" class="form-control" placeholder="Last name" >
+                        </div>
+
+                        <button class="btn btn-primary btn-block" >Sign up</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
