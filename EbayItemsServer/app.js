@@ -26,6 +26,8 @@ cnn.on('ready', function(){
     });
   });
 
+  console.log("listening on item_info_queue");
+
   cnn.queue('item_info_queue', function(q){
     q.subscribe(function(message, headers, deliveryInfo, m){
       util.log(util.format( deliveryInfo.routingKey, message));

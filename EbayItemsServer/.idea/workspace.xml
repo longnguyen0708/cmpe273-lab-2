@@ -4,9 +4,9 @@
     <list default="true" id="096ae5ea-67be-40a3-94fb-884d17d89072" name="Default" comment="" />
     <ignored path="TestMongo.iws" />
     <ignored path=".idea/workspace.xml" />
-    <ignored path="$PROJECT_DIR$/.tmp/" />
-    <ignored path="$PROJECT_DIR$/temp/" />
-    <ignored path="$PROJECT_DIR$/tmp/" />
+    <ignored path="$PROJECT_DIR$/../EbayItems/.tmp/" />
+    <ignored path="$PROJECT_DIR$/../EbayItems/temp/" />
+    <ignored path="$PROJECT_DIR$/../EbayItems/tmp/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,43 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../EbayItemsServer/app.js">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="items.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../EbayItemsServer/services/items.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="33" column="39" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#44#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mongo.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../EbayItemsServer/db/mongo.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../EbayItemsServer/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="31" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
+            <state relative-caret-position="160">
+              <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -77,32 +45,32 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/routes/mongo.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/global.js" />
-        <option value="$PROJECT_DIR$/views/login.ejs" />
-        <option value="$PROJECT_DIR$/views/index.ejs" />
-        <option value="$PROJECT_DIR$/views/signup.ejs" />
-        <option value="$PROJECT_DIR$/routes/index.js" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/services/login.js" />
-        <option value="$PROJECT_DIR$/services/signup.js" />
+        <option value="$PROJECT_DIR$/../EbayItems/routes/mongo.js" />
+        <option value="$PROJECT_DIR$/../EbayItems/public/javascripts/global.js" />
+        <option value="$PROJECT_DIR$/../EbayItems/views/login.ejs" />
+        <option value="$PROJECT_DIR$/../EbayItems/views/index.ejs" />
+        <option value="$PROJECT_DIR$/../EbayItems/views/signup.ejs" />
+        <option value="$PROJECT_DIR$/../EbayItems/routes/index.js" />
+        <option value="$PROJECT_DIR$/../EbayItems/package.json" />
+        <option value="$PROJECT_DIR$/../EbayItems/services/login.js" />
+        <option value="$PROJECT_DIR$/../EbayItems/services/signup.js" />
+        <option value="$PROJECT_DIR$/../EbayItems/app.js" />
+        <option value="$PROJECT_DIR$/../EbayItems/db/mongo.js" />
+        <option value="$PROJECT_DIR$/services/items.js" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/db/mongo.js" />
-        <option value="$PROJECT_DIR$/../EbayItemsServer/services/items.js" />
-        <option value="$PROJECT_DIR$/../EbayItemsServer/app.js" />
       </list>
     </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
-    <package-json value="$PROJECT_DIR$/../EbayItemsServer/package.json" />
+    <package-json value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/../EbayItemsServer/node_modules" />
+    <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
@@ -134,56 +102,30 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="EbayItems" />
+              <option name="myItemId" value="EbayItemsServer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="EbayItems" />
+              <option name="myItemId" value="EbayItemsServer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="EbayItemsServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EbayItems" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EbayItemsServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EbayItems" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EbayItemsServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope">
+        <subPane subId="Problems" />
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -199,11 +141,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/services" />
-      <recent name="$PROJECT_DIR$/db" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/views" />
-      <recent name="$PROJECT_DIR$/routes" />
+      <recent name="$PROJECT_DIR$/../EbayItems/services" />
+      <recent name="$PROJECT_DIR$/../EbayItems/db" />
+      <recent name="$PROJECT_DIR$/../EbayItems" />
+      <recent name="$PROJECT_DIR$/../EbayItems/views" />
+      <recent name="$PROJECT_DIR$/../EbayItems/routes" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.bin/www">
@@ -286,23 +228,27 @@
       <workItem from="1478130377061" duration="1209000" />
       <workItem from="1478238841982" duration="2188000" />
       <workItem from="1478277378802" duration="10263000" />
-      <workItem from="1478292930586" duration="8236000" />
+      <workItem from="1478292930586" duration="9131000" />
+      <workItem from="1478305685366" duration="34000" />
+      <workItem from="1478311998958" duration="191000" />
+      <workItem from="1478312437413" duration="5079000" />
+      <workItem from="1478326472368" duration="4582000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30665000" />
+    <option name="totallyTimeSpent" value="41446000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="707" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27888447" sideWeight="0.503125" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.496875" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -332,7 +278,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../EbayItemsServer/app.js">
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
@@ -340,10 +286,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.ejs" />
-    <entry file="file://$PROJECT_DIR$/routes/users.js" />
-    <entry file="file://$PROJECT_DIR$/routes/index.js" />
-    <entry file="file://$PROJECT_DIR$/../EbayItemsServer/package.json">
+    <entry file="file://$PROJECT_DIR$/../EbayItems/views/index.ejs" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/routes/users.js" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/routes/index.js" />
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -351,11 +297,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/signup.ejs" />
-    <entry file="file://$PROJECT_DIR$/routes/mongo.js" />
-    <entry file="file://$PROJECT_DIR$/views/login.ejs" />
-    <entry file="file://$PROJECT_DIR$/public/javascripts/global.js" />
-    <entry file="file://$PROJECT_DIR$/../EbayItemsServer/app.js">
+    <entry file="file://$PROJECT_DIR$/../EbayItems/views/signup.ejs" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/routes/mongo.js" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/views/login.ejs" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/public/javascripts/global.js" />
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
@@ -363,14 +309,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.ejs" />
-    <entry file="file://$PROJECT_DIR$/routes/users.js" />
-    <entry file="file://$PROJECT_DIR$/routes/index.js" />
-    <entry file="file://$PROJECT_DIR$/views/signup.ejs" />
-    <entry file="file://$PROJECT_DIR$/routes/mongo.js" />
-    <entry file="file://$PROJECT_DIR$/views/login.ejs" />
-    <entry file="file://$PROJECT_DIR$/public/javascripts/global.js" />
-    <entry file="file://$PROJECT_DIR$/../EbayItemsServer/app.js">
+    <entry file="file://$PROJECT_DIR$/../EbayItems/views/index.ejs" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/routes/users.js" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/routes/index.js" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/views/signup.ejs" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/routes/mongo.js" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/views/login.ejs" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/public/javascripts/global.js" />
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -378,9 +324,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.ejs" />
-    <entry file="file://$PROJECT_DIR$/routes/users.js" />
-    <entry file="file://$PROJECT_DIR$/../EbayItemsServer/app.js">
+    <entry file="file://$PROJECT_DIR$/../EbayItems/views/index.ejs" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/routes/users.js" />
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -388,9 +334,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.ejs" />
-    <entry file="file://$PROJECT_DIR$/routes/users.js" />
-    <entry file="file://$PROJECT_DIR$/../EbayItemsServer/app.js">
+    <entry file="file://$PROJECT_DIR$/../EbayItems/views/index.ejs" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/routes/users.js" />
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -398,9 +344,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.ejs" />
-    <entry file="file://$PROJECT_DIR$/routes/users.js" />
-    <entry file="file://$PROJECT_DIR$/../EbayItemsServer/app.js">
+    <entry file="file://$PROJECT_DIR$/../EbayItems/views/index.ejs" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/routes/users.js" />
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -408,8 +354,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.ejs" />
-    <entry file="file://$PROJECT_DIR$/../EbayItemsServer/app.js">
+    <entry file="file://$PROJECT_DIR$/../EbayItems/views/index.ejs" />
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
@@ -417,32 +363,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.ejs" />
-    <entry file="file://$PROJECT_DIR$/routes/users.js" />
-    <entry file="file://$PROJECT_DIR$/routes/index.js" />
-    <entry file="file://$PROJECT_DIR$/views/signup.ejs" />
-    <entry file="file://$PROJECT_DIR$/routes/mongo.js" />
-    <entry file="file://$PROJECT_DIR$/views/login.ejs" />
-    <entry file="file://$PROJECT_DIR$/public/javascripts/global.js" />
-    <entry file="file://$PROJECT_DIR$/views/login.ejs" />
-    <entry file="file://$PROJECT_DIR$/public/javascripts/global.js" />
-    <entry file="file://$PROJECT_DIR$/views/index.ejs" />
-    <entry file="file://$PROJECT_DIR$/routes/users.js" />
-    <entry file="file://$PROJECT_DIR$/views/signup.ejs" />
-    <entry file="file://$PROJECT_DIR$/rpc/amqprpc.js" />
-    <entry file="file://$PROJECT_DIR$/rpc/client.js" />
-    <entry file="file://$PROJECT_DIR$/routes/mongo.js" />
-    <entry file="file://$PROJECT_DIR$/routes/index.js" />
-    <entry file="file://$PROJECT_DIR$/bin/www" />
-    <entry file="file://$PROJECT_DIR$/../EbayItemsServer/services/signup.js">
+    <entry file="file://$PROJECT_DIR$/../EbayItems/views/index.ejs" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/routes/users.js" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/routes/index.js" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/views/signup.ejs" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/routes/mongo.js" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/views/login.ejs" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/public/javascripts/global.js" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/views/login.ejs" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/public/javascripts/global.js" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/views/index.ejs" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/routes/users.js" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/views/signup.ejs" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/rpc/amqprpc.js" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/rpc/client.js" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/routes/mongo.js" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/routes/index.js" />
+    <entry file="file://$PROJECT_DIR$/../EbayItems/bin/www" />
+    <entry file="file://$PROJECT_DIR$/services/signup.js" />
+    <entry file="file://$PROJECT_DIR$/services/items.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-          <folding />
+        <state relative-caret-position="465">
+          <caret line="33" column="39" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../EbayItemsServer/package.json">
+    <entry file="file://$PROJECT_DIR$/db/mongo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="31" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
@@ -450,29 +403,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../EbayItemsServer/db/mongo.js">
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+        <state relative-caret-position="160">
+          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../EbayItemsServer/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../EbayItemsServer/services/items.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="33" column="39" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#44#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>

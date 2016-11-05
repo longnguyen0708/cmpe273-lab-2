@@ -47,7 +47,7 @@ app.use(passport.initialize());
 
 app.use('/', routes);
 app.use('/user', users);
-app.use('/signin', signin);
+//app.use('/signin', signin);
 app.use('/signup', signup);
 app.use('/signout', signout);
 app.use('/cart', cart);

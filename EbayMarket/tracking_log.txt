@@ -96,3 +96,110 @@ Event Log,2016-11-04 16:38:44,undefined,581d1572e87a3453819a8d8c,click on auctio
 Event Log,2016-11-04 16:40:09,undefined,581d1572e87a3453819a8d8c,click on auction item
 Event Log,2016-11-04 16:42:20,undefined,581d1572e87a3453819a8d8c,click on auction item
 Event Log,2016-11-04 16:42:23,undefined,undefined,view bid history
+Event Log,2016-11-04 19:08:24,undefined,581d0fdc783ff5c2c739e79a,click on buy it now item
+Event Log,2016-11-04 19:08:30,undefined,581d0fdc783ff5c2c739e79a,click on buy it now item
+Event Log,2016-11-04 19:08:37,undefined,btn100,add item to cart
+Event Log,2016-11-04 19:09:26,undefined,581d0fdc783ff5c2c739e79a,click on buy it now item
+Event Log,2016-11-04 19:09:33,undefined,btn100,add item to cart
+Event Log,2016-11-04 19:24:52,undefined,581d0fdc783ff5c2c739e79a,click on buy it now item
+Event Log,2016-11-04 19:25:12,undefined,btn100,add item to cart
+Event Log,2016-11-04 19:27:32,undefined,btn100,add item to cart
+Event Log,2016-11-04 19:29:38,undefined,581d0fdc783ff5c2c739e79a,click on buy it now item
+Event Log,2016-11-04 19:29:42,undefined,btn100,add item to cart
+Event Log,2016-11-04 19:33:28,undefined,581d0fdc783ff5c2c739e79a,click on buy it now item
+Event Log,2016-11-04 19:33:30,undefined,btn100,add item to cart
+Event Log,2016-11-04 19:35:24,undefined,581d0fdc783ff5c2c739e79a,click on buy it now item
+Event Log,2016-11-04 19:35:25,undefined,btn100,add item to cart
+Event Log,2016-11-04 19:38:50,undefined,581d0fdc783ff5c2c739e79a,click on buy it now item
+Event Log,2016-11-04 19:38:51,undefined,btn100,add item to cart
+Event Log,2016-11-04 19:38:55,undefined,581d462c4e1a7cc0482a6374,click on buy it now item
+Event Log,2016-11-04 19:39:00,undefined,btn100,add item to cart
+Event Log,2016-11-04 21:13:33,undefined,581d0fdc783ff5c2c739e79a,update item in cart
+Event Log,2016-11-04 21:15:05,undefined,581d0fdc783ff5c2c739e79a,update item in cart
+Event Log,2016-11-04 21:16:06,undefined,581d0fdc783ff5c2c739e79a,update item in cart
+Event Log,2016-11-04 21:17:05,undefined,581d0fdc783ff5c2c739e79a,update item in cart
+Event Log,2016-11-04 21:19:04,undefined,581d0fdc783ff5c2c739e79a,update item in cart
+Event Log,2016-11-04 21:21:29,undefined,581d0fdc783ff5c2c739e79a,update item in cart
+Event Log,2016-11-04 21:21:33,undefined,581d0fdc783ff5c2c739e79a,update item in cart
+Event Log,2016-11-04 21:21:35,undefined,581d0fdc783ff5c2c739e79a,update item in cart
+Event Log,2016-11-04 21:35:58,undefined,581d462c4e1a7cc0482a6374,remove item in cart
+Event Log,2016-11-04 21:37:36,undefined,581d0fdc783ff5c2c739e79a,remove item in cart
+Event Log,2016-11-04 21:39:23,undefined,581d0fdc783ff5c2c739e79a,click on buy it now item
+Event Log,2016-11-04 21:39:24,undefined,btn100,add item to cart
+Event Log,2016-11-04 21:39:29,undefined,581d0fdc783ff5c2c739e79a,click on buy it now item
+Event Log,2016-11-04 21:39:30,undefined,btn100,add item to cart
+Event Log,2016-11-04 21:41:01,undefined,581d0fdc783ff5c2c739e79a,click on buy it now item
+Event Log,2016-11-04 21:41:02,undefined,btn100,add item to cart
+Event Log,2016-11-04 21:41:06,undefined,581d0fdc783ff5c2c739e79a,click on buy it now item
+Event Log,2016-11-04 21:41:07,undefined,btn100,add item to cart
+Event Log,2016-11-04 21:41:10,undefined,581d462c4e1a7cc0482a6374,click on buy it now item
+Event Log,2016-11-04 21:41:12,undefined,btn100,add item to cart
+Event Log,2016-11-04 21:41:24,undefined,581d0fdc783ff5c2c739e79a,remove item in cart
+Event Log,2016-11-04 22:14:18,undefined,581d462c4e1a7cc0482a6374,remove item in cart
+Event Log,2016-11-04 22:29:34,undefined,581d0fdc783ff5c2c739e79a,click on buy it now item
+Event Log,2016-11-04 22:29:38,undefined,btn100,add item to cart
+Event Log,2016-11-04 22:29:41,undefined,581d0fdc783ff5c2c739e79a,update item in cart
+Event Log,2016-11-04 22:29:44,undefined,581d0fdc783ff5c2c739e79a,update item in cart
+Event Log,2016-11-04 22:29:47,undefined,581d0fdc783ff5c2c739e79a,update item in cart
+Event Log,2016-11-04 22:29:49,undefined,581d0fdc783ff5c2c739e79a,update item in cart
+Event Log,2016-11-04 22:29:55,undefined,581d462c4e1a7cc0482a6374,click on buy it now item
+Event Log,2016-11-04 22:29:56,undefined,btn100,add item to cart
+Event Log,2016-11-04 22:30:02,undefined,btn101,checkout
+Event Log,2016-11-04 22:33:56,undefined,btn101,checkout
+Event Log,2016-11-04 22:35:16,undefined,btn101,checkout
+Event Log,2016-11-04 23:01:00,undefined,btn101,checkout
+Event Log,2016-11-04 23:03:23,undefined,btn101,checkout
+Event Log,2016-11-04 23:05:51,undefined,btn101,checkout
+Event Log,2016-11-04 23:23:41,undefined,581d0fdc783ff5c2c739e79a,update item in cart
+Event Log,2016-11-04 23:24:39,undefined,btn101,checkout
+Event Log,2016-11-04 23:32:00,undefined,btn101,checkout
+Event Log,2016-11-04 23:32:04,undefined,581d0fdc783ff5c2c739e79a,click on buy it now item
+Event Log,2016-11-04 23:32:10,undefined,btn100,add item to cart
+Event Log,2016-11-04 23:32:41,undefined,581d0fdc783ff5c2c739e79a,update item in cart
+Event Log,2016-11-04 23:32:46,undefined,btn101,checkout
+Event Log,2016-11-04 23:33:34,undefined,btn101,checkout
+Event Log,2016-11-04 23:34:42,undefined,581d0fdc783ff5c2c739e79a,update item in cart
+Event Log,2016-11-04 23:34:50,undefined,btn101,checkout
+Event Log,2016-11-05 00:10:08,undefined,btn101,checkout
+Event Log,2016-11-05 00:10:16,undefined,btn101,checkout
+Event Log,2016-11-05 00:10:43,undefined,btn102,confirm checkout
+Event Log,2016-11-05 00:11:46,undefined,btn101,checkout
+Event Log,2016-11-05 00:12:02,undefined,btn102,confirm checkout
+Event Log,2016-11-05 00:12:40,undefined,btn101,checkout
+Event Log,2016-11-05 00:12:54,undefined,btn102,confirm checkout
+Event Log,2016-11-05 00:16:24,undefined,581d0fdc783ff5c2c739e79a,click on buy it now item
+Event Log,2016-11-05 00:16:32,undefined,btn100,add item to cart
+Event Log,2016-11-05 00:16:35,undefined,581d462c4e1a7cc0482a6374,click on buy it now item
+Event Log,2016-11-05 00:16:39,undefined,btn100,add item to cart
+Event Log,2016-11-05 00:16:41,undefined,btn101,checkout
+Event Log,2016-11-05 00:17:16,undefined,btn102,confirm checkout
+Event Log,2016-11-05 00:17:24,undefined,581d0fdc783ff5c2c739e79a,click on buy it now item
+Event Log,2016-11-05 00:17:32,undefined,581d462c4e1a7cc0482a6374,click on buy it now item
+Event Log,2016-11-05 00:25:27,undefined,581d0fdc783ff5c2c739e79a,click on buy it now item
+Event Log,2016-11-05 00:25:29,undefined,btn100,add item to cart
+Event Log,2016-11-05 00:25:53,undefined,581d0fdc783ff5c2c739e79a,click on buy it now item
+Event Log,2016-11-05 00:25:55,undefined,btn100,add item to cart
+Event Log,2016-11-05 00:25:59,undefined,581d462c4e1a7cc0482a6374,click on buy it now item
+Event Log,2016-11-05 00:26:03,undefined,btn100,add item to cart
+Event Log,2016-11-05 00:26:05,undefined,btn101,checkout
+Event Log,2016-11-05 00:26:24,undefined,btn102,confirm checkout
+Event Log,2016-11-05 00:28:26,undefined,581d0fdc783ff5c2c739e79a,click on buy it now item
+Event Log,2016-11-05 00:28:29,undefined,btn100,add item to cart
+Event Log,2016-11-05 00:28:36,undefined,581d462c4e1a7cc0482a6374,click on buy it now item
+Event Log,2016-11-05 00:28:37,undefined,btn100,add item to cart
+Event Log,2016-11-05 00:28:39,undefined,btn101,checkout
+Event Log,2016-11-05 00:28:45,undefined,btn102,confirm checkout
+Event Log,2016-11-05 00:28:59,undefined,btn102,confirm checkout
+Event Log,2016-11-05 00:29:07,undefined,581d0fdc783ff5c2c739e79a,click on buy it now item
+Event Log,2016-11-05 00:31:20,undefined,581d0fdc783ff5c2c739e79a,click on buy it now item
+Event Log,2016-11-05 00:31:23,undefined,btn100,add item to cart
+Event Log,2016-11-05 00:31:28,undefined,581d462c4e1a7cc0482a6374,click on buy it now item
+Event Log,2016-11-05 00:31:34,undefined,btn100,add item to cart
+Event Log,2016-11-05 00:31:35,undefined,btn101,checkout
+Event Log,2016-11-05 00:31:49,undefined,btn102,confirm checkout
+Event Log,2016-11-05 00:31:52,undefined,581d0fdc783ff5c2c739e79a,click on buy it now item
+Event Log,2016-11-05 00:31:55,undefined,btn100,add item to cart
+Event Log,2016-11-05 00:31:58,undefined,581d462c4e1a7cc0482a6374,click on buy it now item
+Event Log,2016-11-05 00:32:07,undefined,btn100,add item to cart
+Event Log,2016-11-05 00:32:14,undefined,btn101,checkout
+Event Log,2016-11-05 00:33:31,undefined,btn102,confirm checkout

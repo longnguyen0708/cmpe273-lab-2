@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../EbayItemsServer/.idea/EbayItems.iml" filepath="$PROJECT_DIR$/../EbayItemsServer/.idea/EbayItems.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/EbayItems.iml" filepath="$PROJECT_DIR$/.idea/EbayItems.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/EbayItemsServer.iml" filepath="$PROJECT_DIR$/.idea/EbayItemsServer.iml" />
     </modules>
   </component>
 </project>

@@ -4,6 +4,7 @@ var tools = require('./tools')
 var fecha = require('fecha');
 var mysql = require('./mysql')
 var async = require('async');
+var mq_client = require('../rpc/client');
 
 var addToCartButtonId = 'btn100';
 var buttonCheckOutId = 'btn101';
@@ -11,109 +12,118 @@ var confirmCheckoutButtonId = 'btn102';
 
 /* GET users listing. */
 router.get('/getCart', tools.authenticate, function(req, res, next) {
-    mysql.operate(req, 'getCart', function (result) {
-        if (result == null) { //error
-            res.render('cart',
-                {
-                    cart: null,
-                    msg:'There is an error with getting cart.'
-                });
-        } else if (result === false) {//not valid email
-            req.session.user.cartItemNum = 0;
-            res.locals.cartItemNum = req.session.user.cartItemNum;
-            res.render('cart',
-                {
-                    cart: null,
-                    msg:'Your shopping cart is empty.'
-                });
-        } else {
-            var updated = false;
-            var total = 0;
-            async.each(result,
-                function(item, callback){
-                    console.log('getCart: itemId= ' + item.itemId)
-                    if (item.quantity + item.soldNum > item.num) {
-                        updated = true;
-                        item.quantity = item.num - item.soldNum;
-                        //update item to Cart
-                        // req.body.quantity = result[i].quantity;
-                        // req.body.itemId = result[i].itemId;
-                        mysql.operate(item, 'updateCart', function (r) {
-                        });
-                    }
-                    total += item.quantity;
-                    callback();
-                },
-
-                function(){
-                    // All tasks are done now
-                    console.log('getCart: updated= ' + updated)
-                    //assign total item session
-                    req.session.user.cartItemNum = total;
-                    res.locals.cartItemNum = req.session.user.cartItemNum;
-                    
-                    var msg = '';
-                    if (updated) msg = 'The quantity of items in your cart has been adjusted to match the inventory '
-                    res.render('cart',
-                        {
-                            cart: result,
-                            msg:msg
-                        });
-                }
-            );
+    console.log('[CLIENT] getCart ' + req.session.user._id , '');
+    const payload = {
+        action: "GET_CART",
+        content: {
+            userId: req.session.user._id
         }
-    })
+    }
+    mq_client.make_request('cart_queue', payload, function(err,result){
+
+        if(err){
+            throw err;
+        }
+        else
+        {
+            if (result.code == 404) {
+                req.session.user.cartItemNum = 0;
+                res.locals.cartItemNum = req.session.user.cartItemNum;
+                res.render('cart',
+                    {
+                        cart: null,
+                        msg:'Your shopping cart is empty.'
+                    });
+            } else {
+                //assign total item session
+                req.session.user.cartItemNum = result.total;
+                res.locals.cartItemNum = req.session.user.cartItemNum;
+                res.render('cart',
+                    {
+                        cart: result.cart,
+                        msg: result.msg
+                    });
+            }
+        }
+    });
+
+
 });
 
 router.post('/addToCart', function(req, res, next) {
     tools.eventLog(new Date(), req.session.user.id, addToCartButtonId, 'add item to cart');
 
-    console.log('addToCart: userId= ' + req.session.user.id + ' itemId=' + req.session.item.itemId + ' quantity= ' + req.body.buyQuantity);
-    mysql.operate(req, 'getCartItem', function (result) {
-        if (result == null) { //error
-        } else if (result === false) {//item not exist
-            mysql.operate(req, 'addtoCart', function (result) {
-                if (result == null) { //error
-                    res.render('item',
-                        {
-                            item: result,
-                            msg: 'Add to cart error'
-                        }
-                    )
-                } else {
-                    res.redirect('/cart/getCart');
-                }
-            })
-        } else {
-            // req.body.quantity = parseInt(req.body.buyQuantity) + parseInt(result.quantity);
-            // req.body.itemId = req.session.item.itemId;
-            var item = new Object();
-            item.quantity = parseInt(req.body.buyQuantity) + parseInt(result.quantity);
-            item.buyerId = req.session.user.id;
-            item.itemId = req.session.item.itemId;
-            mysql.operate(item, 'updateCart', function (r) {
-            });
+    console.log('[CLIENT] addToCart ' + req.session.user._id , ' itemId=' + req.session.item._id + ' quantity= ' + req.body.buyQuantity);
+    const payload = {
+        action: "ADD_TO_CART",
+        content: {
+            userId: req.session.user._id,
+            itemId: req.session.item._id,
+            description: req.session.item.description,
+            cond: req.session.item.cond,
+            buyNowPrice: req.session.item.buyNowPrice,
+            quantity: req.body.buyQuantity
+        }
+    }
+    mq_client.make_request('cart_queue',payload, function(err,result){
+
+        if(err){
+            throw err;
+        }
+        else
+        {
             res.redirect('/cart/getCart');
         }
-    })
+    });
+
 });
 
 router.post('/updateCart', function(req, res, next) {
     tools.eventLog(new Date(), req.session.user.id, req.body.itemId, 'update item in cart');
-    var item = new Object();
-    item.quantity = req.body.quantity;
-    item.buyerId = req.session.user.id;
-    item.itemId = req.body.itemId;
-    mysql.operate(item, 'updateCart', function (result) {
+
+    console.log('[CLIENT] updateCart ' + req.session.user._id , ' itemId=' + req.body.itemId + ' quantity= ' + req.body.quantity);
+    const payload = {
+        action: "UPDATE_CART",
+        content: {
+            userId: req.session.user._id,
+            itemId: req.body.itemId,
+            quantity: req.body.quantity
+        }
+    }
+    mq_client.make_request('cart_queue',payload, function(err,result){
+
+        if(err){
+            throw err;
+        }
+        else
+        {
             res.redirect('/cart/getCart');
-    })
+        }
+    });
 });
 
 router.get('/removeCartItem/:itemId', function(req, res, next) {
     tools.eventLog(new Date(), req.session.user.id, req.params.itemId, 'remove item in cart');
-    mysql.operate(req, 'removeCartItem', function (result) {
-        res.redirect('/cart/getCart');
-    })
+
+    console.log('[CLIENT] removeCartItem ' + req.session.user._id , ' itemId=' + req.params.itemId);
+    const payload = {
+        action: "REMOVE_CART_ITEM",
+        content: {
+            userId: req.session.user._id,
+            itemId: req.params.itemId,
+        }
+    }
+    mq_client.make_request('cart_queue',payload, function(err,result){
+
+        if(err){
+            throw err;
+        }
+        else
+        {
+            res.redirect('/cart/getCart');
+        }
+    });
+
 });
 
 
@@ -121,61 +131,40 @@ router.post('/checkout', function(req, res, next) {
     tools.eventLog(new Date(), req.session.user.id, buttonCheckOutId, 'checkout');
     res.locals.firstName = req.session.user.firstName;
     res.locals.cartItemNum = req.session.user.cartItemNum;
-    mysql.operate(req, 'getCart', function (result) {
-        if (result == null) { //error
-            res.render('cart',
-                {
-                    cart: null,
-                    msg:'There is an error with getting cart.'
-                });
-        } else if (result === false) {//not valid email
-            res.render('cart',
-                {
-                    cart: null,
-                    msg:'Your shopping cart is empty, but it doesn\'t have to be.'
-                });
-        } else {
-            var updated = false;
-            var q = 0;
-            var p = 0;
-            async.each(result,
-                function(item, callback){
-                    if (item.quantity + item.soldNum > item.num) {
-                        updated = true;
-                        item.quantity = item.num - item.soldNum;
-                        //update item to Cart
-                        // req.body.quantity = result[i].quantity;
-                        // req.body.itemId = result[i].itemId;
-                        mysql.operate(item, 'updateCart', function (r) {
-                        })
-                    }
-                    q += item.quantity;
-                    p += item.quantity * item.buyNowPrice;
-                    callback();
-                },
 
-                function(){
-                    // All tasks are done now
-                    if (updated) {
-                            var msg = 'The quantity of items in your cart has been adjusted to match the inventory '
-                            res.render('cart',
-                                {
-                                    cart: result,
-                                    msg: msg
-                                });
-                    } else {
-
-                            res.render('checkout',
-                                {
-                                    quantity: q,
-                                    price: p,
-                                    msg: ''
-                                });
-                    }
-                }
-            );
+    console.log('[CLIENT] checkout ' + req.session.user._id );
+    const payload = {
+        action: "CHECK_OUT",
+        content: {
+            userId: req.session.user._id
         }
-    })
+    }
+    mq_client.make_request('cart_queue',payload, function(err,result){
+
+        if(err){
+            throw err;
+        }
+        else
+        {
+            console.log(typeof result.msg, ' msg.length= ' +  result.msg.length)
+            if (result.msg.length > 2) {
+                console.log(typeof result.msg, ' msg.length 2= ' +  result.msg.length)
+                res.render('cart',
+                    {
+                        cart: result.cart,
+                        msg: result.msg
+                    });
+            } else {
+
+                res.render('checkout',
+                    {
+                        quantity: result.total,
+                        price: result.price,
+                        msg: ''
+                    });
+            }
+        }
+    });
 });
 
 router.post('/confirmCheckout', function(req, res, next) {
@@ -195,79 +184,38 @@ router.post('/confirmCheckout', function(req, res, next) {
     if (res.locals.msg != undefined) {
         res.render('checkout');
     } else {
-        mysql.operate(req, 'getCart', function (result) {
-            if (result == null) { //error
-                res.render('cart',
-                    {
-                        cart: null,
-                        msg: 'There is an error with getting cart.'
-                    });
-            } else if (result === false) {//not valid email
-                res.render('cart',
-                    {
-                        cart: null,
-                        msg: 'Your shopping cart is empty, but it doesn\'t have to be.'
-                    });
-            } else {
-                var updated = false;
-                async.each(result,
-                    function (item, callback) {
-                        if (item.quantity + item.soldNum > item.num) {
-                            updated = true;
-                            item.quantity = item.num - item.soldNum;
-                            //update item to Cart
-                            // req.body.quantity = result[i].quantity;
-                            // req.body.itemId = result[i].itemId;
-                            mysql.operate(item, 'updateCart', function (r) {
-                            })
-                        }
-                        callback();
-                    },
 
-                    function () {
-                        // All tasks are done now
-                        if (updated) {
-                            var msg = 'The quantity of items in your cart has been adjusted to match the inventory '
-                            res.render('cart',
-                                {
-                                    cart: result,
-                                    msg: msg
-                                });
-                        } else {
-                            async.each(result,
-                                function (item, callback) {
-                                    console.log("confirmCheckout: itemId= " + item.itemId);
-                                    if (item.quantity > 0) {
-                                        mysql.operate(item, 'updateItems', function (r) {
-                                        });
-
-                                        mysql.operate(item, 'addOrder', function (r) {
-                                        });
-                                    }
-                                },
-
-                                function (err) {
-                                    // All tasks are done now
-                                }
-                            );
-
-
-                            mysql.operate(req, 'deleteCart', function (r) {
-
-                            });
-                            req.session.user.cartItemNum = 0;
-                            res.locals.cartItemNum = req.session.user.cartItemNum;
-                            res.render('confirmOrder',
-                                {
-                                    cart: result
-                                });
-                        }
-                    }
-                );
-
-
+        console.log('[CLIENT] confirmCheckout ' + req.session.user._id );
+        const payload = {
+            action: "CONFIRM_CHECK_OUT",
+            content: {
+                userId: req.session.user._id
             }
-        })
+        }
+        mq_client.make_request('cart_queue',payload, function(err,result){
+
+            if(err){
+                throw err;
+            }
+            else
+            {
+                if (result.msg.length > 2) {
+                    res.render('cart',
+                        {
+                            cart: result.cart,
+                            msg: result.msg
+                        });
+                } else {
+
+                    req.session.user.cartItemNum = 0;
+                    res.locals.cartItemNum = req.session.user.cartItemNum;
+                    res.render('confirmOrder',
+                        {
+                            cart: result.cart
+                        });
+                }
+            }
+        });
     }
 });
 
