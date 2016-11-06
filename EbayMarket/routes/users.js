@@ -3,14 +3,13 @@ var router = express.Router();
 var tools = require('./tools')
 var fecha = require('fecha');
 var mysql = require('./mysql')
+var mq_client = require('../rpc/client');
 
 /* GET users listing. */
 router.get('/auctionItem', tools.authenticate, function(req, res, next) {
     res.locals.firstName = req.session.user.firstName;
     res.locals.cartItemNum = req.session.user.cartItemNum;
-    mysql.operate(req, 'profile', function (result) {
-        res.render('auctionitem', {generalError: '', address: result});
-    });
+    res.render('auctionitem', {generalError: ''});
 });
 
 router.post('/auctionItem', function(req, res, next) {
@@ -21,40 +20,49 @@ router.post('/auctionItem', function(req, res, next) {
     var fourDaysMore = new Date(now.valueOf() + 1000*60*60*24*4);
     var currTime = fecha.format(now, 'YYYY-MM-DD HH:mm:ss');
     var expireTime = fecha.format(fourDaysMore, 'YYYY-MM-DD HH:mm:ss');
-    console.log('auctionItem: currTime= ' + currTime + ' expireTime= ' + expireTime);
-    req.body.datePost = currTime;
-    req.body.dateExpire = expireTime;
-    //set type 0
-    req.body.type = 1;
-    req.body.buyNowPrice = 0;
-    req.body.num = 1;
-    req.body.currBid = req.body.startPrice;
-    mysql.operate(req, 'registerItem', function (result) {
-        if (result == null) { //error
-            mysql.operate(req, 'profile', function (result) {
-                res.render('auctionitem', {generalError: 'Auction item error', address: result});
-            });
-        } else {
-            mysql.operate(req, 'updateProfile', function (result) {});
-    
+
+    console.log('[CLIENT] auctionItem ' + req.session.user._id );
+    const payload = {
+        action: "REGISTER_ITEM",
+        content: {
+            type:1,
+            name:req.body.name,
+            description:req.body.description,
+            soldNum:0,
+            num:1,
+            startPrice:req.body.startPrice,
+            currBid:req.body.startPrice,
+            datePost: currTime,
+            dateExpire:expireTime,
+            cond:req.body.cond,
+            bids:0,
+            userId:req.session.user._id,
+            userName: req.session.user.firstName + ' ' + req.session.user.lastName,
+            location: req.session.user.city + ',' + req.session.user.state + ',' + req.session.user.country
+        }
+    }
+    mq_client.make_request('user_sale_queue',payload, function(err,result){
+        if(err){
+            throw err;
+        }
+        else
+        {
             res.render('auctionItemResult', {
                 description: req.body.description,
                 startPrice: req.body.startPrice,
                 cond: req.body.cond,
-                datePost: req.body.datePost,
-                dateExpire: req.body.dateExpire
+                datePost: currTime,
+                dateExpire: expireTime
             })
         }
-    })
+    });
 });
 
 
 router.get('/sellBuyItem', tools.authenticate, function(req, res, next) {
     res.locals.firstName = req.session.user.firstName;
     res.locals.cartItemNum = req.session.user.cartItemNum;
-    mysql.operate(req, 'profile', function (result) {
-        res.render('sellbuyitnowitem', {generalError: '', address: result});
-    });
+    res.render('sellbuyitnowitem', {generalError: ''});
 });
 
 router.post('/sellBuyItem', function(req, res, next) {
@@ -63,67 +71,82 @@ router.post('/sellBuyItem', function(req, res, next) {
     //validation
 
     var currTime = fecha.format(new Date(), 'YYYY-MM-DD HH:mm:ss');
-    console.log('sellBuyItem: currTime= ' + currTime);
-    req.body.datePost = currTime;
-    req.body.dateExpire = currTime;
-    //set type 0
-    req.body.type = 0;
-    req.body.startPrice = 0;
-    req.body.currBid = 0;
-    
-    mysql.operate(req, 'registerItem', function (result) {
-        if (result == null) { //error
-            mysql.operate(req, 'profile', function (result) {
-                res.render('sellbuyitnowitem', {generalError: 'register item error', address: result});
-            });
-        } else {
-            mysql.operate(req, 'updateProfile', function (result) {});
 
+    console.log('[CLIENT] sellBuyItem ' + req.session.user._id );
+    const payload = {
+        action: "REGISTER_ITEM",
+        content: {
+            type:0,
+            name:req.body.name,
+            description:req.body.description,
+            soldNum:0,
+            num:req.body.num,
+            buyNowPrice:req.body.buyNowPrice,
+            datePost: currTime,
+            cond:req.body.cond,
+            userId:req.session.user._id,
+            userName: req.session.user.firstName + ' ' + req.session.user.lastName,
+            location: req.session.user.city + ',' + req.session.user.state + ',' + req.session.user.country
+        }
+    }
+    mq_client.make_request('user_sale_queue',payload, function(err,result){
+        if(err){
+            throw err;
+        }
+        else
+        {
             res.render('registerItemResult', {
                 description: req.body.description,
                 quantity: req.body.num,
                 buyNowPrice: req.body.buyNowPrice,
                 cond: req.body.cond,
-                datePost: req.body.datePost
+                datePost: currTime
             })
         }
-    })
+    });
 });
 
 router.get('/profile', function(req, res, next) {
     res.locals.firstName = req.session.user.firstName;
     res.locals.cartItemNum = req.session.user.cartItemNum;
-    mysql.operate(req, 'profile', function (result) {
         res.render('profile', {
-            msg: '',
-            profile: result
+            profile: req.session.user
         });
-    })
     
 });
 
 router.post('/updateProfile', function(req, res, next) {
     res.locals.firstName = req.session.user.firstName;
     res.locals.cartItemNum = req.session.user.cartItemNum;
-    //validation
 
-    mysql.operate(req, 'updateProfile', function (result) {
-        if (result == null) { //error
-            mysql.operate(req, 'profile', function (result) {
-                res.render('profile', {
-                    msg: 'Update profile error',
-                    profile: result
-                });
-            })
-        } else {
-            mysql.operate(req, 'profile', function (result) {
-                res.render('profile', {
-                    msg: '',
-                    profile: result
-                });
-            })
+    console.log('[CLIENT] updateProfile ' + req.session.user._id );
+    const payload = {
+        action: "UPDATE_PROFILE",
+        content: {
+            userId: req.session.user._id,
+            street: req.body.street,
+            city: req.body.city,
+            state: req.body.state,
+            zipcode: req.body.zipcode,
+            country: req.body.country
         }
-    })
+    }
+    mq_client.make_request('user_info_queue',payload, function(err,result){
+        if(err){
+            throw err;
+        }
+        else
+        {
+            req.session.user.street = req.body.street
+            req.session.user.city = req.body.city
+            req.session.user.state = req.body.state
+            req.session.user.country = req.body.country
+            req.session.user.zipcode = req.body.zipcode
+            res.render('profile', {
+                profile: req.session.user
+            });
+        }
+    });
 });
 
 router.get('/allselling', function(req, res, next) {

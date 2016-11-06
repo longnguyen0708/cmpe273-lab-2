@@ -38,7 +38,6 @@
           <th>Description</th>
           <th>Condition</th>
           <th>Bid amount</th>
-          <th>Bidders</th>
           <th>Date bid</th>
           <th>Date expire</th>
         </tr>
@@ -49,7 +48,6 @@
             <td><%= items[i].description %></td>
             <td><%= items[i].cond %></td>
             <td>$<%= items[i].bidAmount %></td>
-            <td><a href=<%="/bid/getBid/" + items[i].itemId%>>[<%=items[i].bids + ' bids'%>]</a></td>
             <td><%= items[i].bidDate %></td>
             <td><%= items[i].dateExpire %></td>
           </tr>

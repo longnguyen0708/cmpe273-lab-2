@@ -13,7 +13,7 @@ router.get('/',tools.authenticate, function(req, res, next) {
     console.log('index: req.session.user.cartItemNum= ' + req.session.user.cartItemNum);
     console.log('index: res.locals.cartItemNum= ' + res.locals.cartItemNum);
 
-    mq_client.make_request('all_items_queue',{}, function(err,result){
+    mq_client.make_request('all_items_queue',{userId: req.session.user._id}, function(err,result){
 
         if(err){
             throw err;
@@ -76,8 +76,8 @@ router.get('/auction/:id',tools.authenticate, function(req, res, next) {
         }
         else
         {
-            //TODO: uncomment later
-          //  result.dateExpire = fecha.format(result.dateExpire, 'ddd, H:mm');
+
+            result.dateExpire = fecha.format(fecha.parse(result.dateExpire, 'YYYY-MM-DD HH:mm:ss'), 'ddd, H:mm');
             req.session.item = result;
             res.render('auction',
                 {

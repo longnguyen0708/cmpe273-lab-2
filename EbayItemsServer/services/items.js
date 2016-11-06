@@ -9,7 +9,7 @@ var mongodb = require('mongodb');
 function get_all_items(msg, callback){
 
     const col = mongo.collection('items')
-    col.find({}).toArray(function(err, docs) {
+    col.find({userId: { $ne: msg.userId }}).toArray(function(err, docs) {
         console.log('[SERVER] get_all_items', docs)
         if (docs.length == 0) {
             callback(null, {code: 404})

@@ -27,8 +27,8 @@ router.get('/getBid/:itemId', function(req, res, next) {
         }
         else
         {
-            for (var i = 0; i < result.length; i++) {
-                result.bids[i].bidDate = fecha.format(result[i].bidDate, 'MMM D, YYYY H:mm:ss');
+            for (var i = 0; i < result.bids.length; i++) {
+                result.bids[i].bidDate = fecha.format(fecha.parse(result.bids[i].bidDate, 'YYYY-MM-DD HH:mm:ss'), 'MMM D, YYYY H:mm:ss');
             }
             res.render('viewbid',
                 {
@@ -85,46 +85,55 @@ router.get('/allauction', function(req, res, next) {
     res.locals.firstName = req.session.user.firstName;
     res.locals.cartItemNum = req.session.user.cartItemNum;
 
-    mysql.operate(req, 'allAuction', function (result) {
-        if (result === false) {
+    console.log('[CLIENT] getAllAuction ' + req.session.user._id );
+    const payload = {
+        action: "GET_ALL_AUCTION",
+        content: {
+            userId: req.session.user._id
+        }
+    }
+    mq_client.make_request('user_sale_queue',payload, function(err,result){
+
+        if(err){
+            throw err;
+        }
+        else
+        {
+
             res.render('allauction', {
-                items: result,
-                msg: 'You have no auction item.'
-            });
-        } else {
-            for (var i = 0; i < result.length; i++) {
-                result[i].datePost = fecha.format(result[i].datePost, 'MMM D, YYYY H:mm');
-                result[i].dateExpire = fecha.format(result[i].dateExpire, 'MMM D, YYYY H:mm');
-            }
-            res.render('allauction', {
-                items: result,
-                msg: undefined
+                items: result.items,
+                msg: result.msg
             });
         }
-    })
+    });
+
 });
 
 router.get('/allbidding', function(req, res, next) {
     res.locals.firstName = req.session.user.firstName;
     res.locals.cartItemNum = req.session.user.cartItemNum;
 
-    mysql.operate(req, 'allBidding', function (result) {
-        if (result === false) {
+    console.log('[CLIENT] getAllBidding ' + req.session.user._id );
+    const payload = {
+        action: "GET_ALL_BIDDING",
+        content: {
+            userId: req.session.user._id
+        }
+    }
+    mq_client.make_request('user_sale_queue',payload, function(err,result){
+
+        if(err){
+            throw err;
+        }
+        else
+        {
+
             res.render('allbidding', {
-                items: result,
-                msg: 'You have no bidding item.'
-            });
-        } else {
-            for (var i = 0; i < result.length; i++) {
-                result[i].bidDate = fecha.format(result[i].bidDate, 'MMM D, YYYY H:mm');
-                result[i].dateExpire = fecha.format(result[i].dateExpire, 'MMM D, YYYY H:mm');
-            }
-            res.render('allbidding', {
-                items: result,
-                msg: undefined
+                items: result.items,
+                msg: result.msg
             });
         }
-    })
+    });
 });
 
 module.exports = router;

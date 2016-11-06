@@ -19,7 +19,7 @@
     <div class="col-sm-6">
         <h1><span class=""></span>Profile</h1>
 
-        Email: <%=profile.email%> <br>
+        Email: <%=profile.username%> <br>
         User name: <%= profile.firstName + ' ' + profile.lastName%> <br>
         Address:
         <%if (profile.city != null) {%>
@@ -47,7 +47,6 @@
                 <button class="btn btn-success" >Save</button>
 
             </form>
-            <%= msg %>
         </div>
     </div>
 </div>
