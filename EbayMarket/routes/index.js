@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var tools = require('./tools');
-var mysql = require('./mysql');
 var fecha = require('fecha');
 
 var mq_client = require('../rpc/client');

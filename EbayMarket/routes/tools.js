@@ -1,7 +1,6 @@
 /**
  * Created by longnguyen on 9/29/16.
  */
-var mysql = require('./mysql');
 const fs = require('fs');
 var fecha = require('fecha');
 

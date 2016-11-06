@@ -51,7 +51,7 @@
                     <form ng-app="signup" ng-controller="signup"  name="signupForm" method="post" action="/signup" >
                         <span class="alert"><%= signupMsg %></span>
                         <div class="form-group" ng-class="{ 'has-error' : invalidEmail }">
-                            <input type="email" class="form-control" name="email"  placeholder="Email">
+                            <input type="email" class="form-control" name="username"  placeholder="Email">
                         </div>
                         <div class="form-group" ng-class="{ 'has-error' : invalidReEmail }">
                             <input type = "email" class="form-control" name="reEmail" placeholder="Reenter email" >

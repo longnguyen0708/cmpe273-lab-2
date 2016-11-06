@@ -5,6 +5,8 @@ var async = require('async');
 var mongo = require('../db/mongo')
 var mongodb = require('mongodb');
 var fecha = require('fecha');
+var bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 function handleMsg(msg, callback){
 
@@ -14,6 +16,9 @@ function handleMsg(msg, callback){
     {
         case 'UPDATE_PROFILE':
             updateProfile(msg.content, callback)
+            break
+        case 'SIGNUP':
+            signup(msg.content, callback)
             break
         default:
             callback(null, {code: 404})
@@ -31,52 +36,25 @@ var updateProfile = function(req, callback) {
     })
 }
 
-var removeCartItem = function(req, callback) {
-    const col = mongo.collection('cart')
-    col.remove({userId: req.userId, itemId: req.itemId}, function(err, r){
-        console.log('[SERVER] removeCartItem ', req)
-        callback(null,{})
-    })
-}
+var signup = function(req, callback) {
+    const col = mongo.collection('users')
+    col.findOne({username: req.username},function(err, doc) {
+        if (!doc) {
+            bcrypt.hash(req.password, saltRounds, function(err, hash) {
+                console.log('[SERVER] password before encrypt ', req.password)
+                req.password = hash
+                console.log('[SERVER] password after encrypt ', req.password)
+                col.insertOne(req, function(err, r){
+                    callback(null, {code:0})
+                })
+            });
 
-var checkout = function(req, callback) {
-    getCart(req, callback)
-}
-
-var confirmCheckOut = function(req, callback) {
-    getCart(req, function(err, result) {
-        if (result.msg.length > 2) {
-            callback(null, result)
         } else {
-            async.each(result.cart,
-                function (item, callback) {
-                    console.log("confirmCheckout: itemId= ", item);
-                    if (item.quantity > 0) {
-                        const col = mongo.collection('items')
-                        const whereParams = {
-                            _id: new mongodb.ObjectID(item.itemId)
-                        }
-                        col.updateOne(whereParams, {$set: {soldNum: parseInt(item.quantity) + parseInt(item.soldNum)}}, function(err, r){
-                        })
-                        const colOrder = mongo.collection('orders')
-                        item.orderDate = fecha.format(new Date(), 'YYYY-MM-DD HH:mm:ss');
-                        colOrder.insertOne(item, function(err, r){})
-                    }
-                },
-
-                function (err) {
-                    // All tasks are done now
-                }
-            );
-
-
-            const colCart = mongo.collection('cart')
-            colCart.remove({userId: req.userId}, function(err, r){
-                console.log('[SERVER] removeCart ', req)
-            })
-            callback(null, result)
+            callback(null, {code:1})
         }
-    })
+    });
 }
+
+
 
 exports.handleMsg = handleMsg;

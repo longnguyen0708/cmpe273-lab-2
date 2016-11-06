@@ -46,8 +46,8 @@
       <file leaf-file-name="cart.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/services/cart.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="68" column="21" selection-start-line="66" selection-start-column="20" selection-end-line="68" selection-end-column="21" />
+            <state relative-caret-position="188">
+              <caret line="129" column="12" selection-start-line="129" selection-start-column="12" selection-end-line="129" selection-end-column="12" />
               <folding>
                 <element signature="e#3622#3861#0" expanded="false" />
                 <element signature="e#3908#4113#0" expanded="false" />
@@ -277,23 +277,23 @@
       <workItem from="1478312049566" duration="137000" />
       <workItem from="1478312565808" duration="6567000" />
       <workItem from="1478326589561" duration="4634000" />
-      <workItem from="1478382155353" duration="13176000" />
+      <workItem from="1478382155353" duration="17150000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60753000" />
+    <option name="totallyTimeSpent" value="64727000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="707" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -464,8 +464,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/services/cart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="68" column="21" selection-start-line="66" selection-start-column="20" selection-end-line="68" selection-end-column="21" />
+        <state relative-caret-position="188">
+          <caret line="129" column="12" selection-start-line="129" selection-start-column="12" selection-end-line="129" selection-end-column="12" />
           <folding>
             <element signature="e#3622#3861#0" expanded="false" />
             <element signature="e#3908#4113#0" expanded="false" />

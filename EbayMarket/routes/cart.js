@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var tools = require('./tools')
 var fecha = require('fecha');
-var mysql = require('./mysql')
 var async = require('async');
 var mq_client = require('../rpc/client');
 
@@ -62,7 +61,9 @@ router.post('/addToCart', function(req, res, next) {
             description: req.session.item.description,
             cond: req.session.item.cond,
             buyNowPrice: req.session.item.buyNowPrice,
-            quantity: req.body.buyQuantity
+            quantity: req.body.buyQuantity,
+            sellerName: req.session.item.userName,
+            buyerName: req.session.user.firstName + ' ' + req.session.user.lastName
         }
     }
     mq_client.make_request('cart_queue',payload, function(err,result){

@@ -3,8 +3,8 @@
  */
 var express = require('express');
 var router = express.Router();
-var mysql = require('./mysql');
 var fecha = require('fecha');
+var mq_client = require('../rpc/client');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -17,15 +17,15 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
-    var email = req.body.email;
+    var email = req.body.username;
     var pwd = req.body.password;
     var firstName = req.body.firstName;
     var lastName = req.body.lastName;
-    console.log('Signup: ' + email + '   ' + pwd + '     ' + firstName + '   ' + lastName);
+    console.log('[CLIENT] Signup: ' + email + '   ' + pwd + '     ' + firstName + '   ' + lastName);
     //Todo: validate
-    if (req.body.email == '') {
+    if (req.body.username == '') {
         res.locals.signupMsg = 'Please enter your email address.'
-    } else if (req.body.reEmail != req.body.email) {
+    } else if (req.body.reEmail != req.body.username) {
         res.locals.signupMsg = 'Looks like these email addresses don’t match.'
     } else if (req.body.password.length < 6 || req.body.password.length > 64) {
         res.locals.signupMsg = 'Use 6 to 64 characters for your password.'
@@ -40,44 +40,30 @@ router.post('/', function (req, res, next) {
                 signinMsg: ''
             });
     } else {
-        //Todo: check email exist
-        mysql.operate(req, 'checkEmail', function (result) {
-            if (result === true) { //email exists
-                res.render('signin',
-                    {
-                        tab: 'signup',
-                        signinMsg: '',
-                        signupMsg: 'Your email address is already registered. Please sign in.'
 
-                    });
+        const payload = {
+            action: "SIGNUP",
+            content: req.body
+        }
+        mq_client.make_request('user_info_queue',payload, function(err,result){
 
-            } else {
-                //Todo: store to db
-                req.body.lastLogin = fecha.format(new Date(), 'YYYY-MM-DD HH:mm:ss');
-                mysql.operate(req, 'signup', function (result) {
-                    console.log('Signup: result: ' + result);
-                    if (result === null) {
-                        //return error
-                        res.render('signin',
-                            {
-                                tab: 'signup',
-                                signinMsg: '',
-                                signupMsg: 'There is an error with signing up.'
-                            });
-                    } else {
-                        mysql.operate(req, 'signin', function (result) {
-                            req.session.user = result;
-                            req.session.cartItemNum = 0;
-                            mysql.operate(result, 'addProfile', function (result) {
-                                res.redirect('/');
-                            });
-                        });
-
-                        
-                    }
-                })
+            if(err){
+                throw err;
             }
-        })
+            else {
+                if (result.code == 1) {
+                    res.render('signin',
+                        {
+                            tab: 'signup',
+                            signinMsg: '',
+                            signupMsg: 'Your email address is already registered. Please sign in.'
+
+                        });
+                } else {
+                    res.redirect('/signin');
+                }
+            }
+        });
     }
 });
 

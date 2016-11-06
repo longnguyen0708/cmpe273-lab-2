@@ -2,15 +2,15 @@
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
 var mongo = require('../db/mongo');
+var bcrypt = require('bcrypt');
 
 
 module.exports = function(passport) {
     passport.use('signin', new LocalStrategy(function(username, password, done) {
-        console.log('before signin: ' + username + ' ' + password)
+        console.log('Before signin: ' + username + ' ' + password)
         var loginCollection = mongo.collection('users');
         var whereParams = {
-            username:username,
-            password:password
+            username:username
         }
 
         process.nextTick(function(){
@@ -25,12 +25,16 @@ module.exports = function(passport) {
                     return done(null, false);
                 }
 
-                if(user.password != password) {
-                    done(null, false);
-                }
+                bcrypt.compare(password, user.password, function(err, res) {
+                    if (res == true) {
+                        console.log('Signin successfully ', user.username);
+                        done(null, user);
+                    } else {
+                        done(null, false);
+                    }
+                });
 
-                console.log(user.email);
-                done(null, user);
+
             });
         });
     }));

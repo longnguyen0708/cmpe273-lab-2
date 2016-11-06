@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var tools = require('./tools')
 var fecha = require('fecha');
-var mysql = require('./mysql')
 var async = require('async');
 var mq_client = require('../rpc/client');
 

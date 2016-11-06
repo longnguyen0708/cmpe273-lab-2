@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var tools = require('./tools')
 var fecha = require('fecha');
-var mysql = require('./mysql')
 var mq_client = require('../rpc/client');
 
 /* GET users listing. */
@@ -152,67 +151,83 @@ router.post('/updateProfile', function(req, res, next) {
 router.get('/allselling', function(req, res, next) {
     res.locals.firstName = req.session.user.firstName;
     res.locals.cartItemNum = req.session.user.cartItemNum;
-    mysql.operate(req, 'allselling', function (result) {
-        if (result === false) {
+
+    console.log('[CLIENT] getAllSelling ' + req.session.user._id );
+    const payload = {
+        action: "GET_ALL_SELLING",
+        content: {
+            userId: req.session.user._id
+        }
+    }
+    mq_client.make_request('user_sale_queue',payload, function(err,result){
+
+        if(err){
+            throw err;
+        }
+        else
+        {
+
             res.render('allselling', {
-                items: result,
-                msg: 'You have no selling item.'
-            });
-        } else {
-            for (var i = 0; i < result.length; i++) {
-                result[i].datePost = fecha.format(result[i].datePost, 'MMM D, YYYY H:mm:ss');
-            }
-            res.render('allselling', {
-                items: result,
-                msg: undefined
+                items: result.items,
+                msg: result.msg
             });
         }
-    })
+    });
 
 });
 
 router.get('/sold', function(req, res, next) {
     res.locals.firstName = req.session.user.firstName;
     res.locals.cartItemNum = req.session.user.cartItemNum;
-    mysql.operate(req, 'sold', function (result) {
-        if (result === false) {
+
+    console.log('[CLIENT] getSold' + req.session.user._id );
+    const payload = {
+        action: "GET_SOLD",
+        content: {
+            userId: req.session.user._id
+        }
+    }
+    mq_client.make_request('user_sale_queue',payload, function(err,result){
+
+        if(err){
+            throw err;
+        }
+        else
+        {
+
             res.render('sold', {
-                items: result,
-                msg: 'You have no sold item.'
-            });
-        } else {
-            for (var i = 0; i < result.length; i++) {
-                result[i].datePost = fecha.format(result[i].datePost, 'MMM D, YYYY H:mm:ss');
-                result[i].orderDate = fecha.format(result[i].orderDate, 'MMM D, YYYY H:mm:ss');
-            }
-            res.render('sold', {
-                items: result,
-                msg: undefined
+                items: result.items,
+                msg: result.msg
             });
         }
-    })
+    });
 
 });
 
 router.get('/bought', function(req, res, next) {
     res.locals.firstName = req.session.user.firstName;
     res.locals.cartItemNum = req.session.user.cartItemNum;
-    mysql.operate(req, 'bought', function (result) {
-        if (result === false) {
+    console.log('[CLIENT] getBought' + req.session.user._id );
+    const payload = {
+        action: "GET_BOUGHT",
+        content: {
+            userId: req.session.user._id
+        }
+    }
+    mq_client.make_request('user_sale_queue',payload, function(err,result){
+
+        if(err){
+            throw err;
+        }
+        else
+        {
+
             res.render('bought', {
-                items: result,
-                msg: 'You have no bought item.'
-            });
-        } else {
-            for (var i = 0; i < result.length; i++) {
-                result[i].orderDate = fecha.format(result[i].orderDate, 'MMM D, YYYY H:mm:ss');
-            }
-            res.render('bought', {
-                items: result,
-                msg: undefined
+                items: result.items,
+                msg: result.msg
             });
         }
-    })
+    });
 
 });
 
