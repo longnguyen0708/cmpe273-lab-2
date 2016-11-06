@@ -8,6 +8,8 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 var passport = require('passport');
 require('./routes/passport')(passport);
+var mq_client = require('./rpc/client');
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -84,10 +86,35 @@ app.post('/signin', function(req, res, next) {
 
       req.session.user = user;
 
-      req.session.user.cartItemNum = 10;
+      //req.session.user.cartItemNum = 10;
+      const payload = {
+        action: "GET_CART",
+        content: {
+          userId: req.session.user._id
+        }
+      }
+      mq_client.make_request('cart_queue', payload, function(err,result){
 
-      console.log('signin: req.session.cartItemNum= ' + req.session.user.cartItemNum);
-      return res.redirect('/');
+        if(err){
+          throw err;
+        }
+        else
+        {
+          if (result.code == 404) {
+            req.session.user.cartItemNum = 0;
+
+          } else {
+            //assign total item session
+            req.session.user.cartItemNum = result.total;
+
+          }
+
+          console.log('signin: req.session.cartItemNum= ' + req.session.user.cartItemNum);
+          return res.redirect('/');
+        }
+      });
+
+
     })
   })(req, res, next);
 });

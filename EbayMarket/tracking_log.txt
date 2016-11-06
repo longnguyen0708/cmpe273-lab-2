@@ -203,3 +203,63 @@ Event Log,2016-11-05 00:31:58,undefined,581d462c4e1a7cc0482a6374,click on buy it
 Event Log,2016-11-05 00:32:07,undefined,btn100,add item to cart
 Event Log,2016-11-05 00:32:14,undefined,btn101,checkout
 Event Log,2016-11-05 00:33:31,undefined,btn102,confirm checkout
+Event Log,2016-11-05 14:45:46,undefined,581d0fdc783ff5c2c739e79a,remove item in cart
+Event Log,2016-11-05 14:45:47,undefined,581d462c4e1a7cc0482a6374,remove item in cart
+Event Log,2016-11-05 14:45:49,undefined,581d0fdc783ff5c2c739e79a,click on buy it now item
+Event Log,2016-11-05 14:45:51,undefined,btn100,add item to cart
+Event Log,2016-11-05 14:46:02,undefined,581d0fdc783ff5c2c739e79a,click on buy it now item
+Event Log,2016-11-05 14:49:00,undefined,581d462c4e1a7cc0482a6374,click on buy it now item
+Event Log,2016-11-05 14:53:46,undefined,581d0fdc783ff5c2c739e79a,click on buy it now item
+Event Log,2016-11-05 14:53:49,undefined,btn100,add item to cart
+Event Log,2016-11-05 14:53:51,undefined,btn101,checkout
+Event Log,2016-11-05 14:53:53,undefined,581d462c4e1a7cc0482a6374,click on buy it now item
+Event Log,2016-11-05 14:53:54,undefined,btn100,add item to cart
+Event Log,2016-11-05 15:17:56,undefined,581d1572e87a3453819a8d8c,click on auction item
+Bidding Log,2016-11-05 15:18:01,undefined,undefined,
+Event Log,2016-11-05 17:23:27,undefined,581d1572e87a3453819a8d8c,click on auction item
+Bidding Log,2016-11-05 17:23:28,undefined,undefined,
+Bidding Log,2016-11-05 17:23:33,undefined,undefined,201
+Event Log,2016-11-05 17:23:34,undefined,undefined,view bid history
+Event Log,2016-11-05 17:25:20,undefined,581d1572e87a3453819a8d8c,click on auction item
+Event Log,2016-11-05 17:25:21,undefined,undefined,view bid history
+Event Log,2016-11-05 17:27:23,undefined,581d1572e87a3453819a8d8c,click on auction item
+Event Log,2016-11-05 17:27:24,undefined,undefined,view bid history
+Event Log,2016-11-05 17:29:09,undefined,581d1572e87a3453819a8d8c,click on auction item
+Event Log,2016-11-05 17:29:10,undefined,581d1572e87a3453819a8d8c,view bid history
+Event Log,2016-11-05 17:31:24,undefined,581d1572e87a3453819a8d8c,click on auction item
+Event Log,2016-11-05 17:38:21,undefined,581d1572e87a3453819a8d8c,click on auction item
+Event Log,2016-11-05 17:38:22,undefined,581d1572e87a3453819a8d8c,view bid history
+Event Log,2016-11-05 17:38:30,undefined,581d1572e87a3453819a8d8c,click on auction item
+Bidding Log,2016-11-05 17:38:36,undefined,undefined,250
+Event Log,2016-11-05 17:38:36,undefined,undefined,view bid history
+Event Log,2016-11-05 17:39:22,undefined,581d1572e87a3453819a8d8c,click on auction item
+Event Log,2016-11-05 17:39:26,undefined,581d1572e87a3453819a8d8c,view bid history
+Event Log,2016-11-05 17:39:33,undefined,581d1572e87a3453819a8d8c,click on auction item
+Event Log,2016-11-05 17:39:45,undefined,581d1572e87a3453819a8d8c,view bid history
+Event Log,2016-11-05 17:40:26,undefined,581d1572e87a3453819a8d8c,click on auction item
+Bidding Log,2016-11-05 17:40:33,undefined,undefined,260
+Event Log,2016-11-05 17:40:33,undefined,581d1572e87a3453819a8d8c,view bid history
+Event Log,2016-11-05 17:40:39,undefined,581d1572e87a3453819a8d8c,click on auction item
+Event Log,2016-11-05 17:56:25,undefined,581d1572e87a3453819a8d8c,click on auction item
+Bidding Log,2016-11-05 17:56:29,undefined,undefined,300
+Event Log,2016-11-05 17:56:29,undefined,581d1572e87a3453819a8d8c,view bid history
+Event Log,2016-11-05 17:56:44,undefined,581d1572e87a3453819a8d8c,click on auction item
+Event Log,2016-11-05 17:57:02,undefined,581d1572e87a3453819a8d8c,view bid history
+Event Log,2016-11-05 18:04:54,undefined,581d1572e87a3453819a8d8c,click on auction item
+Event Log,2016-11-05 18:04:58,undefined,581d1572e87a3453819a8d8c,view bid history
+Event Log,2016-11-05 18:18:27,undefined,581d1572e87a3453819a8d8c,click on auction item
+Event Log,2016-11-05 18:18:29,undefined,581d1572e87a3453819a8d8c,view bid history
+Event Log,2016-11-05 18:23:11,undefined,581d1572e87a3453819a8d8c,click on auction item
+Event Log,2016-11-05 18:23:13,undefined,581d1572e87a3453819a8d8c,view bid history
+Event Log,2016-11-05 18:23:17,undefined,581d1572e87a3453819a8d8c,click on auction item
+Bidding Log,2016-11-05 18:23:28,undefined,undefined,300
+Event Log,2016-11-05 18:23:28,undefined,581d1572e87a3453819a8d8c,view bid history
+Event Log,2016-11-05 18:23:41,undefined,581d1572e87a3453819a8d8c,click on auction item
+Bidding Log,2016-11-05 18:23:48,undefined,undefined,200
+Event Log,2016-11-05 18:23:48,undefined,581d1572e87a3453819a8d8c,view bid history
+Event Log,2016-11-05 18:29:50,undefined,581d1572e87a3453819a8d8c,click on auction item
+Event Log,2016-11-05 18:29:57,undefined,581d462c4e1a7cc0482a6374,click on buy it now item
+Event Log,2016-11-05 18:30:04,undefined,581d1572e87a3453819a8d8c,click on auction item
+Bidding Log,2016-11-05 18:30:08,undefined,undefined,100
+Event Log,2016-11-05 18:30:21,undefined,581d1572e87a3453819a8d8c,view bid history
+Event Log,2016-11-05 18:32:53,undefined,581d1572e87a3453819a8d8c,view bid history

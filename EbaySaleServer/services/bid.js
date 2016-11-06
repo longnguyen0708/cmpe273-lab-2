@@ -8,15 +8,15 @@ var fecha = require('fecha');
 
 function handleMsg(msg, callback){
 
-    console.log("[SALE SERVER (CART)] handle_msg", msg)
+    console.log("[SALE SERVER (BID)] handle_msg", msg)
 
     switch (msg.action)
     {
-        case 'GET_CART':
-            getCart(msg.content, callback)
+        case 'GET_BID':
+            getBids(msg.content, callback)
             break
-        case 'ADD_TO_CART':
-            addToCart(msg.content, callback)
+        case 'PLACE_BID':
+            placeBid(msg.content, callback)
             break
         case 'UPDATE_CART':
             updateCart(msg.content, callback)
@@ -35,71 +35,27 @@ function handleMsg(msg, callback){
     }
 }
 
-var addToCart = function(req, callback) {
-    const col = mongo.collection('cart')
-    col.findOne({userId: req.userId, itemId: req.itemId},function(err, doc) {
-        if (!doc) {
-            col.insertOne(req, function(err, r){})
-        } else {
-            const quantity = parseInt(req.quantity) + parseInt(doc.quantity);
-            col.updateOne({userId: req.userId, itemId: req.itemId}, {$set: {quantity: quantity}}, function(err, r){})
+var placeBid = function(req, callback) {
+    const col = mongo.collection('bids')
+    col.insertOne(req, function(err, r){
+        const colItems = mongo.collection('items')
+        const whereParams = {
+            _id: new mongodb.ObjectID(req.itemId)
         }
-        callback(null, {})
-    });
+        colItems.updateOne(whereParams,{$inc: {bids: 1}, $set: {currBid: req.bidAmount}}, function(err, r){
+            callback(null, {})
+        })
+    })
 }
 
-var getCart = function (req, callback) {
-    const col = mongo.collection('cart')
-    col.find({userId: req.userId}).toArray(function(err, docs) {
-        console.log('[SERVER] get_cart', docs)
+var getBids = function (req, callback) {
+    const col = mongo.collection('bids')
+    col.find({itemId: req.itemId}, {"sort": [['bidDate', 'desc']]}).toArray(function(err, docs) {
+        console.log('[SERVER] get_bid', docs)
         if (docs.length == 0) {
-            callback(null, {code: 404})
+            callback(null, {bids: null,  msg:'There is no bid for this item'})
         } else {
-
-            var updated = false;
-            var total = 0;
-            var price = 0;
-            async.each(docs,
-                function(item, callback){
-                    console.log('getCart: itemId= ' + item.itemId)
-
-                    const itemsCol = mongo.collection('items')
-                    const whereParams = {
-                        _id: new mongodb.ObjectID(item.itemId)
-                    }
-                    itemsCol.findOne(whereParams, function(err, doc) {
-                        console.log('[SERVER] get_item result', doc)
-                        if (parseInt(item.quantity) + parseInt(doc.soldNum) > parseInt(doc.num)) {
-                            updated = true;
-                            item.quantity = parseInt(doc.num) - parseInt(doc.soldNum);
-                            col.updateOne({userId: req.userId, itemId: item.itemId}, {$set: {quantity: item.quantity}}, function(err, r){})
-                        }
-                        item.soldNum = doc.soldNum;
-                        item.sellerId = doc.userId;
-                        total += parseInt(item.quantity);
-                        price += parseInt(item.quantity) * parseFloat(item.buyNowPrice);
-                        callback();
-                    });
-
-                },
-
-                function(){
-                    // All tasks are done now
-                    console.log('getCart: updated= ' + updated)
-
-                    var msg = '';
-                    if (updated) msg = 'The quantity of items in your cart has been adjusted to match the inventory '
-                    const result = {
-                        msg: msg,
-                        total: total,
-                        price: price,
-                        cart : docs
-                    }
-                    callback(null, result)
-                }
-            );
-
-
+            callback(null, {bids: docs, msg: ''})
         }
     });
 }

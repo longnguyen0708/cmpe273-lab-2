@@ -45,13 +45,13 @@
                   <p>Expire day: <%=item.dateExpire%></p>
                 </td>
                 <td>
-                  <span class="alert"><a href=<%="/bid/getBid/" + item.itemId%>>[<%=item.bids + ' bids'%>]</a></span>
+                  <span class="alert"><a href=<%="/bid/getBid/" + item._id%>>[<%=item.bids + ' bids'%>]</a></span>
                 </td>
               </tr>
               <tr></tr>
               <tr>
                 <td>
-                  <span>Enter US $<%=item.currBid + 1%> or more</span>
+                  <span>Enter US $<%=parseFloat(item.currBid) + 1%> or more</span>
                   <input type="number" name="bidAmount" min="<%=item.currBid + 1%>">
                 </td>
                 <td>

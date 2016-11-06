@@ -16,7 +16,6 @@ module.exports = function(passport) {
         process.nextTick(function(){
             loginCollection.findOne(whereParams, function(error, user) {
 
-                console.log('After signin: ' + user._id)
 
                 if(error) {
                     return done(err);
