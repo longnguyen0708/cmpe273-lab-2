@@ -7,7 +7,7 @@ var mq_client = require('../rpc/client');
 
 /* GET users listing. */
 router.get('/getBid/:itemId', function(req, res, next) {
-    tools.eventLog(new Date(), req.session.user.id, req.params.itemId, 'view bid history');
+    tools.eventLog(new Date(), req.session.user._id, req.params.itemId, 'view bid history');
 
     res.locals.firstName = req.session.user.firstName;
     res.locals.cartItemNum = req.session.user.cartItemNum;
@@ -41,7 +41,7 @@ router.get('/getBid/:itemId', function(req, res, next) {
 router.post('/placeBid', function(req, res, next) {
     res.locals.firstName = req.session.user.firstName;
     res.locals.cartItemNum = req.session.user.cartItemNum;
-    tools.biddingLog(new Date(), req.session.user.id, req.session.item.itemId, req.body.bidAmount);
+    tools.biddingLog(new Date(), req.session.user._id, req.session.item._id, req.body.bidAmount);
     //validation
     if (req.body.bidAmount == '' || parseFloat(req.body.bidAmount) <= parseFloat(req.session.item.currBid)) {
         res.render('auction',

@@ -50,3 +50,26 @@ Event Log,2016-11-06 16:01:39,undefined,581f9bd1002f8cebf3187e56,view bid histor
 Event Log,2016-11-06 16:01:47,undefined,581f9f58002f8cebf3187e5a,click on auction item
 Bidding Log,2016-11-06 16:01:50,undefined,undefined,12
 Event Log,2016-11-06 16:01:50,undefined,581f9f58002f8cebf3187e5a,view bid history
+Event Log,2016-11-06 20:56:23,581f864c002f8cebf3187e50,581f93f4002f8cebf3187e54,click on buy it now item
+Event Log,2016-11-06 20:56:26,581f864c002f8cebf3187e50,btn100,add item to cart
+Event Log,2016-11-06 20:56:30,581f864c002f8cebf3187e50,581f93f4002f8cebf3187e54,update item in cart
+Event Log,2016-11-06 20:56:34,581f864c002f8cebf3187e50,581fbfb3002f8cebf3187e5d,click on buy it now item
+Event Log,2016-11-06 20:56:36,581f864c002f8cebf3187e50,btn100,add item to cart
+Event Log,2016-11-06 20:56:41,581f864c002f8cebf3187e50,581f93bb002f8cebf3187e53,click on buy it now item
+Event Log,2016-11-06 20:56:48,581f864c002f8cebf3187e50,581f9fc0002f8cebf3187e5c,click on buy it now item
+Event Log,2016-11-06 20:56:50,581f864c002f8cebf3187e50,btn100,add item to cart
+Event Log,2016-11-06 20:56:55,581f864c002f8cebf3187e50,581f9fc0002f8cebf3187e5c,remove item in cart
+Event Log,2016-11-06 20:56:57,581f864c002f8cebf3187e50,btn101,checkout
+Event Log,2016-11-06 20:57:45,581f864c002f8cebf3187e50,btn102,confirm checkout
+Event Log,2016-11-06 20:57:50,581f864c002f8cebf3187e50,581f99cc002f8cebf3187e55,click on auction item
+Event Log,2016-11-06 20:57:53,581f864c002f8cebf3187e50,581f99cc002f8cebf3187e55,view bid history
+Bidding Log,2016-11-06 20:58:00,581f864c002f8cebf3187e50,581f99cc002f8cebf3187e55,390
+Event Log,2016-11-06 20:58:00,581f864c002f8cebf3187e50,581f99cc002f8cebf3187e55,view bid history
+Event Log,2016-11-06 20:58:03,581f864c002f8cebf3187e50,581f9fc0002f8cebf3187e5c,click on buy it now item
+Event Log,2016-11-06 20:58:07,581f864c002f8cebf3187e50,581f9bd1002f8cebf3187e56,click on auction item
+Bidding Log,2016-11-06 20:58:12,581f864c002f8cebf3187e50,581f9bd1002f8cebf3187e56,430
+Event Log,2016-11-06 20:58:12,581f864c002f8cebf3187e50,581f9bd1002f8cebf3187e56,view bid history
+Event Log,2016-11-06 20:58:17,581f864c002f8cebf3187e50,581f9fc0002f8cebf3187e5c,click on buy it now item
+Event Log,2016-11-06 20:58:25,581f864c002f8cebf3187e50,581fc357002f8cebf3187e5e,click on auction item
+Bidding Log,2016-11-06 20:58:28,581f864c002f8cebf3187e50,581fc357002f8cebf3187e5e,20
+Event Log,2016-11-06 20:58:28,581f864c002f8cebf3187e50,581fc357002f8cebf3187e5e,view bid history

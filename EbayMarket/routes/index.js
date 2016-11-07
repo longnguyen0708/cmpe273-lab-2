@@ -40,7 +40,7 @@ router.get('/',tools.authenticate, function(req, res, next) {
 });
 
 router.get('/item/:id',tools.authenticate, function(req, res, next) {
-    tools.eventLog(new Date(), req.session.user.id, req.params.id, 'click on buy it now item');
+    tools.eventLog(new Date(), req.session.user._id, req.params.id, 'click on buy it now item');
     const payLoad = {
         id: req.params.id
     }
@@ -64,7 +64,7 @@ router.get('/item/:id',tools.authenticate, function(req, res, next) {
 });
 
 router.get('/auction/:id',tools.authenticate, function(req, res, next) {
-    tools.eventLog(new Date(), req.session.user.id, req.params.id, 'click on auction item');
+    tools.eventLog(new Date(), req.session.user._id, req.params.id, 'click on auction item');
     const payLoad = {
         id: req.params.id
     }

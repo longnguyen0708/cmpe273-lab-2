@@ -50,7 +50,7 @@ router.get('/getCart', tools.authenticate, function(req, res, next) {
 });
 
 router.post('/addToCart', function(req, res, next) {
-    tools.eventLog(new Date(), req.session.user.id, addToCartButtonId, 'add item to cart');
+    tools.eventLog(new Date(), req.session.user._id, addToCartButtonId, 'add item to cart');
 
     console.log('[CLIENT] addToCart ' + req.session.user._id , ' itemId=' + req.session.item._id + ' quantity= ' + req.body.buyQuantity);
     const payload = {
@@ -80,7 +80,7 @@ router.post('/addToCart', function(req, res, next) {
 });
 
 router.post('/updateCart', function(req, res, next) {
-    tools.eventLog(new Date(), req.session.user.id, req.body.itemId, 'update item in cart');
+    tools.eventLog(new Date(), req.session.user._id, req.body.itemId, 'update item in cart');
 
     console.log('[CLIENT] updateCart ' + req.session.user._id , ' itemId=' + req.body.itemId + ' quantity= ' + req.body.quantity);
     const payload = {
@@ -104,7 +104,7 @@ router.post('/updateCart', function(req, res, next) {
 });
 
 router.get('/removeCartItem/:itemId', function(req, res, next) {
-    tools.eventLog(new Date(), req.session.user.id, req.params.itemId, 'remove item in cart');
+    tools.eventLog(new Date(), req.session.user._id, req.params.itemId, 'remove item in cart');
 
     console.log('[CLIENT] removeCartItem ' + req.session.user._id , ' itemId=' + req.params.itemId);
     const payload = {
@@ -129,7 +129,7 @@ router.get('/removeCartItem/:itemId', function(req, res, next) {
 
 
 router.post('/checkout', function(req, res, next) {
-    tools.eventLog(new Date(), req.session.user.id, buttonCheckOutId, 'checkout');
+    tools.eventLog(new Date(), req.session.user._id, buttonCheckOutId, 'checkout');
     res.locals.firstName = req.session.user.firstName;
     res.locals.cartItemNum = req.session.user.cartItemNum;
 
@@ -169,7 +169,7 @@ router.post('/checkout', function(req, res, next) {
 });
 
 router.post('/confirmCheckout', function(req, res, next) {
-    tools.eventLog(new Date(), req.session.user.id, confirmCheckoutButtonId, 'confirm checkout');
+    tools.eventLog(new Date(), req.session.user._id, confirmCheckoutButtonId, 'confirm checkout');
     res.locals.firstName = req.session.user.firstName;
     res.locals.cartItemNum = req.session.user.cartItemNum;
     //TODO: validate credit card
