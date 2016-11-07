@@ -30,6 +30,7 @@ module.exports = function(passport) {
                         console.log('Signin successfully ', user.username);
                         done(null, user);
                     } else {
+                        console.log('wrong password ', user.username);
                         done(null, false);
                     }
                 });

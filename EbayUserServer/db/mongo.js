@@ -10,7 +10,7 @@ const url = "mongodb://54.70.90.14:27017/test"
 
 MongoClient.connect(url, {
     server: {
-        poolSize: 20
+        poolSize: 40
     }
 },function(err, _db){
     if (err) { throw new Error('Could not connect: '+err); }

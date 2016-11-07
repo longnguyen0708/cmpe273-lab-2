@@ -53,7 +53,7 @@
             <td><%= items[i].cond %></td>
             <td>$<%= items[i].startPrice %></td>
             <td>$<%= items[i].currBid %></td>
-            <td><a href=<%="/bid/getBid/" + items[i].id%>>[<%=items[i].bids + ' bids'%>]</a></td>
+            <td><a href=<%="/bid/getBid/" + items[i]._id%>>[<%=items[i].bids + ' bids'%>]</a></td>
             <td><%= items[i].datePost %></td>
             <td><%= items[i].dateExpire %></td>
           </tr>

@@ -65,6 +65,7 @@ app.get('/signin', function(req, res, next) {
 })
 
 app.post('/signin', function(req, res, next) {
+  console.log('very begining of signin ', req.body.username + ' ' + req.body.password)
   passport.authenticate('signin', function(err, user, info) {
     if(err) {
       return next(err);
